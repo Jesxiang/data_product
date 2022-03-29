@@ -1,0 +1,92 @@
+// 背景图片地址和大小
+.bis(@url) {
+  background-image: url(@url);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+// 定位垂直水平居中
+.allCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+// flex布局和子元素在主轴和交叉轴对齐方式
+.flexDisplay(@justify: flex-start, @align: flex-start, @direction: row) {
+  display: flex;
+  flex-direction: @direction;
+  align-items: @align;
+  justify-content: @justify;
+}
+
+.flexCenter {
+  .flexDisplay(center, center);
+}
+
+.inlineFlex(@justify: flex-start, @align: flex-start, @direction: row) {
+  display: inline-flex;
+  flex-direction: @direction;
+  align-items: @align;
+  justify-content: @justify;
+}
+
+// 字体设置
+.font(@size, @line-height, @weight: 400, @family: 'PingFangSC-Regular') {
+  font: @weight @size / @line-height @family;
+}
+
+// 字体大小颜色
+.fSizeColor(@size, @color,  @family: 'PingFangSC-Regular') {
+  font-family: @family;
+  font-size: @size;
+  color: @color;
+}
+
+// 宽高
+.wh(@width, @height) {
+  width: @width;
+  height: @height;
+}
+
+//最低宽高
+.minWH(@min-width, @min-height) {
+  min-width: @min-width;
+  min-height: @min-height;
+}
+
+.maxWH(@max-width, @max-height) {
+  max-width: @max-width;
+  max-height: @max-height;
+}
+
+// flex item 自适应属性
+.flexItem(@basis, @grow: 1, @shrink: 1) {
+  flex-basis: @basis;
+  flex-grow: @grow;
+  flex-shrink: @shrink;
+}
+
+.textMaxLine(@size) {
+  display: -webkit-box;
+  overflow: hidden;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: @size;
+}
+
+.two-line-text {
+  .textMaxLine(2);
+}
+
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  white-space: nowrap;
+}
+
+.kt-bg {
+  background: linear-gradient(270deg, var(--mainColor2) 0%, var(--mainColor1) 100%);
+  box-shadow: 0 4px 8px 0 rgba(45, 153, 255, .24);
+}

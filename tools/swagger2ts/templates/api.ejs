@@ -1,0 +1,33 @@
+import { Request } from '@/utils/request';
+const request = Request.getInstance();
+
+/**
+ * <%=description%>
+ */
+export class <%= className %>{
+<% for (var i = 0; i < methods.length; i++) {%>
+        <% method=methods[i] %>
+  /**
+  * <%=method.summary%><% method.parameters.forEach(parameter => {%>
+  * @param {<%-parameter.paramType %>} <%=parameter.camelCaseName %> - <%=parameter.description _%>
+  <%})%>
+  */
+        static <%=method.methodName%> (
+            <% method.parameters.forEach(parameter => {_%>
+                <%=parameter.camelCaseName %><%=parameter.required %>:<%-parameter.paramType %>,
+            <%})_%>
+        ) {
+            <%if (method.queryParams.length > 0) {%>
+                return request.<%=method.requestMethodName%><<%=method.responses.paramType%>>(`<%=method.path%>`, {
+        <% method.queryParams.forEach(parameter => { _%>
+        <%=parameter.camelCaseName %>,
+        <%})_%>
+                });
+            <%} else if (method.bodyParams.length > 0) {%>
+                return request.<%=method.requestMethodName%><<%=method.responses.paramType%>>(`<%=method.path%>`, <%=method.bodyParams[0].camelCaseName%>);
+            <%} else {%>
+                return request.<%=method.requestMethodName%><<%=method.responses.paramType%>>(`<%=method.path%>`);
+            <%}%>
+        }
+<%}%>
+}

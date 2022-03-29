@@ -1,0 +1,9 @@
+declare namespace KtApi {
+<%if(description){%>
+/**
+* <%=description%>
+*/<%}%>
+type <%=name%> =<%tsType.properties.forEach(propertity =>{%> <%if(propertity.isRef){%><%=propertity.target%><%}%><%if(propertity.isAtomic){%><%- propertity.tsType %><%}%><%if(propertity.isArray){%>Array<<%if(propertity.elementType.target){%><%- propertity.elementType.target %><%} else {%>any<%}%>><%} else if (propertity.isObject && propertity.recordType) {%>Record<string, <%=propertity.recordType%>><%}_%>
+    <%})%>
+
+}

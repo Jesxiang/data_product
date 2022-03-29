@@ -1,0 +1,41 @@
+/**
+ *  created by lllwx
+ *  Date: 2021/6/1
+ *  Time: 1:56 下午
+ *  For: 主皮肤
+ */
+@import "./mixin";
+
+@mainColor1: #2d99ff;
+@mainColor2: #2ddcff;
+@mainColor3: #ff6c40;
+@mainColor4: #F5F8FF;
+
+@mainFontSize: 14px;
+@smallFontSize: 12px;
+@bigFontSize: 16px;
+@hugeFontSize: 18px;
+
+@fontColor1: #273340;
+@fontColor2: #A8AFB4;
+@fontColor3: #95ABDF;
+
+@borderColor1: #E9EBF1;
+
+html[data-theme='theme1'] {
+  --mainColor1: @mainColor1;
+  --mainColor2: @mainColor2;
+  --mainColor3: @mainColor3;
+  --mainColor4: @mainColor4;
+  --mainFontSize: @mainFontSize;
+  --smallFontSize: @smallFontSize;
+  --hugeFontSize: @hugeFontSize;
+  --bigFontSize: @bigFontSize;
+  --fontColor1: @fontColor1;
+  --fontColor2: @fontColor2;
+  --fontColor3: @fontColor3;
+  --bgColor: @mainColor3;
+  --bgColor2: @mainColor1;
+  --bgColor3: @mainColor4;
+  --borderColor1: @borderColor1;
+}

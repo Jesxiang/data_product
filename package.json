@@ -1,0 +1,85 @@
+{
+  "name": "big-data-platform",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve:local": "vue-cli-service serve",
+    "serve:test": "vue-cli-service serve --mode server.test",
+    "serve:pro": "vue-cli-service serve --mode server.pro",
+    "build:test": "vue-cli-service build --mode build.test",
+    "build:pro": "vue-cli-service build --mode build.pro --report",
+    "test:unit": "vue-cli-service test:unit",
+    "lint": "vue-cli-service lint",
+    "compile:config": "tsc -m commonjs --esModuleInterop vue.config.ts",
+    "swagger": "node ./tools/swagger2ts/index.js && eslint --fix ./src/api/*.ts",
+    "postinstall": "npx husky install"
+  },
+  "dependencies": {
+    "@ant-design/icons-vue": "^6.0.1",
+    "@tailwindcss/postcss7-compat": "2.0.1",
+    "@vueuse/core": "^5.0.3",
+    "ant-design-vue": "~2.1.2",
+    "autoprefixer": "9",
+    "axios": "^0.21.1",
+    "core-js": "^3.y6.5",
+    "dayjs": "^1.10.5",
+    "echarts": "^5.1.1",
+    "html2canvas": "^1.0.0-rc.7",
+    "normalize.css": "^8.0.1",
+    "nprogress": "^0.2.0",
+    "postcss": "7",
+    "tailwindcss": "2.0.1-compat",
+    "lodash-es": "~4.17.21",
+    "vue": "~3.0.1",
+    "vue-echarts": "^6.0.0-rc.5",
+    "vue-router": "^4.0.0-0",
+    "vuex": "^4.0.0-0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.11",
+    "@types/mocha": "^5.2.4",
+    "@types/lodash-es": "^4.17.4",
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-typescript": "~4.5.0",
+    "@vue/cli-plugin-unit-mocha": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/eslint-config-typescript": "^7.0.0",
+    "@vue/test-utils": "^2.0.0-0",
+    "antd-dayjs-webpack-plugin": "^1.0.6",
+    "babel-plugin-import": "^1.13.3",
+    "chai": "^4.1.2",
+    "ejs": "^3.1.6",
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-vue": "^7.0.0",
+    "fs-extra": "^9.1.0",
+    "got": "^11.8.2",
+    "husky": "^6.0.0",
+    "less": "^3.0.4",
+    "less-loader": "^5.0.0",
+    "lint-staged": "^11.0.0",
+    "style-resources-loader": "^1.4.1",
+    "stylelint": "^13.12.0",
+    "stylelint-config-recess-order": "^2.3.0",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-order": "^4.1.0",
+    "typescript": "~4.1.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,vue}": [
+      "eslint --fix --ext .js,.ts,.jsx,.tsx,.vue"
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  img,
+  svg,
+  video,
+  canvas,
+  audio,
+  iframe,
+  embed,
+  object {
+    display: inline;
+  }
+}
+
+.kt-bg {
+  @apply rounded-md bg-gradient-to-r from-main-1 to-main-2 text-white;
+}
+
+.kt-btn-1 {
+  @apply kt-bg;
+  @apply shadow-btn;
+}
